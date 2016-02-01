@@ -96,3 +96,21 @@ CMAC был выбран в качестве алгоритма подсчета
 \caption{Генерация сессионных ключей}
 \label{img:sk_derivation}
 \end{figure}
+
+Входыми данными для генерации сессионных ключей служит RAND\_P.
+
+На выходе генератора мы получаем сессионные ключи:
+
+\begin{itemize}
+\item 16-байтовый TEK (первый блок);
+\item 64-байтовый MSK (конкатинация 2 - 5 блоков);
+\item 64-байтовый EMSK (конкатинация 6 - 9 блоков).
+\end{itemize}
+
+Более детально алгоритм генерации сессионных ключей представлен на рисунке \ref{img:sk_derivation2}.
+
+\begin{figure}[h!]
+\center{\includegraphics[width=0.9\linewidth]{./pictures/sk_derivation2}}
+\caption{Генерация сессионных ключей}
+\label{img:sk_derivation2}
+\end{figure}
