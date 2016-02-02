@@ -21,3 +21,21 @@
 \caption{Сообщение первого типа}
 \label{img:message_type1}
 \end{figure}
+
+Так как IANA выделил методу EAP-PSK тип номер 47, в поле Type первого сообщения EAP-PSK, в отличии от остальныз, ДОЛЖНО помещаться значение 47.
+
+Первое сообщение EAP-PSK состоит из:
+
+\begin{itemize}
+\item 1-байтового поля Flags;
+\item 16-байтового случаного числа RAND\_S;
+\item поле переменной длины, в котором передается NAI сервера: ID\_S. Длина данного поля вычисляется из поля Length пакета EAP. Длина NAI не должна превышать 966 байт. Это ограничение установлено для того, что бы избежать проблемы фрагментации данных (раздел 8.11).
+\end{itemize}
+
+Поле Flags имеет формат, представленный на рисунке \ref{img:flags_field}.
+
+\begin{figure}[h!]
+\center{\includegraphics[width=0.9\linewidth]{./pictures/flags_field}}
+\caption{Поле Flags EAP-PSK}
+\label{img:flags_field}
+\end{figure}
